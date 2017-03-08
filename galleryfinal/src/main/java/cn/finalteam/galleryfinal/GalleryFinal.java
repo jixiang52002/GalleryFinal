@@ -132,7 +132,7 @@ public class GalleryFinal {
     }
 
     /**
-     * 打开Gallery-
+     * 打开Gallery-多选
      * @param requestCode
      * @param maxSize
      * @param callback

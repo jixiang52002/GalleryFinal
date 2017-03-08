@@ -180,6 +180,7 @@ public abstract class CropImageActivity extends MonitoredActivity {
         return maxSize[0];
     }
 
+    //TODO 开始裁剪
     private void startCrop() {
         if (isFinishing()) {
             return;
@@ -254,6 +255,7 @@ public abstract class CropImageActivity extends MonitoredActivity {
                 public void run() {
                     makeDefault();
                     imageView.invalidate();
+                    //
                     if (imageView.highlightViews.size() == 1) {
                         cropView = imageView.highlightViews.get(0);
                         cropView.setFocus(true);

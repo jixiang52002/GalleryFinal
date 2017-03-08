@@ -286,6 +286,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+                //裁剪的部分参数
                 if (mCbCrop.isChecked()) {
                     functionConfigBuilder.setEnableCrop(true);
                     if (!TextUtils.isEmpty(mEtCropWidth.getText().toString())) {
@@ -381,6 +382,7 @@ public class MainActivity extends AppCompatActivity {
         x.Ext.init(getApplication());
     }
 
+    //添加图片到底部
     private GalleryFinal.OnHanlderResultCallback mOnHanlderResultCallback = new GalleryFinal.OnHanlderResultCallback() {
         @Override
         public void onHanlderSuccess(int reqeustCode, List<PhotoInfo> resultList) {

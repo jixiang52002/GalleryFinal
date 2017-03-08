@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -200,7 +201,7 @@ public class PhotoEditActivity extends CropImageActivity implements AdapterView.
             resultFailureDelayed(getString(R.string.please_reopen_gf), true);
         } else {
             setContentView(R.layout.gf_activity_photo_edit);
-            mDefaultDrawable = getResources().getDrawable(R.drawable.ic_gf_default_photo);
+            mDefaultDrawable = ContextCompat.getDrawable(this,R.drawable.ic_gf_default_photo);
 
             mSelectPhotoList = (ArrayList<PhotoInfo>) getIntent().getSerializableExtra(SELECT_MAP);
             mTakePhotoAction = this.getIntent().getBooleanExtra(TAKE_PHOTO_ACTION, false);
@@ -264,6 +265,7 @@ public class PhotoEditActivity extends CropImageActivity implements AdapterView.
                 //打开相机
                 takePhotoAction();
             }
+            //裁剪功能
             if (mCropPhotoAction) {
                 mIvCrop.performClick();
                 if ( !GalleryFinal.getFunctionConfig().isRotate() && !GalleryFinal.getFunctionConfig().isCamera()) {
@@ -280,6 +282,7 @@ public class PhotoEditActivity extends CropImageActivity implements AdapterView.
         }
     }
 
+    //设置主题
     private void setTheme() {
         mIvBack.setImageResource(GalleryFinal.getGalleryTheme().getIconBack());
         if (GalleryFinal.getGalleryTheme().getIconBack() == R.drawable.ic_gf_back) {
@@ -523,6 +526,7 @@ public class PhotoEditActivity extends CropImageActivity implements AdapterView.
         resultData(mSelectPhotoList);
     }
 
+    //强制裁剪
     private void hasForceCrop() {
         if(GalleryFinal.getFunctionConfig().isForceCrop()) {
             mIvCrop.performClick();//进入裁剪状态
